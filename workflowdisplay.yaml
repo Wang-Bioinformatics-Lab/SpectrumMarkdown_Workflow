@@ -1,4 +1,4 @@
-name: template_nextflow_workflow
+name: createusi_markdown_workflow
 displayname: STUFF
 Views:
 -   name: Summary List

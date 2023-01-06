@@ -1,0 +1,4 @@
+usi
+mzspec:MSV000078547:120228_nbut_3610_it_it_take2:scan:389
+mzspec:MASSBANK::accession:SM858102
+mzspec:GNPS:GNPS-LIBRARY:accession:CCMSLIB00005436077

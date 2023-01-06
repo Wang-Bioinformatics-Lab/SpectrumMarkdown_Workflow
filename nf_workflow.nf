@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-params.input = "README.md"
+params.input_usi_file = "./data/testusi.txt"
 
 // Workflow Boiler Plate
 params.OMETALINKING_YAML = "flow_filelinking.yaml"
@@ -14,12 +14,15 @@ process processData {
     conda "$TOOL_FOLDER/conda_env.yml"
 
     input:
-    file input from Channel.fromPath(params.input)
+    file input from Channel.fromPath(params.input_usi_file)
 
     output:
-    file 'output.tsv' into records_ch
+    file 'usiview.md'
+    file 'usiview.html'
+    file "images"
 
     """
-    python $TOOL_FOLDER/script.py $input output.tsv
+    mkdir images
+    python $TOOL_FOLDER/createusimarkdown.py $input usiview.md usiview.html images
     """
 }

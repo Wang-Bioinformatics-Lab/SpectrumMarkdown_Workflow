@@ -1,6 +1,6 @@
-workflowname: template_nextflow_workflow
-workflowdescription: template_nextflow_workflow
-workflowlongdescription: This is a template nextflow workflow for GNPS2
+workflowname: createusi_markdown_workflow
+workflowdescription: createusi_markdown_workflow
+workflowlongdescription: This is a small workflow to create a usi markdown file
 workflowversion: "0.1"
 workflowfile: nf_workflow.nf
 workflowautohide: false
@@ -10,12 +10,11 @@ parameterlist:
     - displayname: File Selection
       paramtype: section
 
-    - displayname: Input Data Folder
+    - displayname: Input USI File
       paramtype: fileselector
-      nf_paramname: input_spectra_folder
+      nf_paramname: input_usi_file
       formplaceholder: Enter the path to data
       formvalue: ""
-      targettaskfolder: input_spectra
+      targettaskfolder: input_usi_file
       optional: false
-      selectsinglefile: false
-      folderunroll: true
+      selectsinglefile: true
