@@ -1,6 +1,6 @@
 workflowname: createusi_markdown_workflow
 workflowdescription: createusi_markdown_workflow
-workflowlongdescription: This is a small workflow to create a usi markdown file
+workflowlongdescription: This is a small workflow to create a usi markdown file. Make sure to input a txt file with tabs with a 'usi' column
 workflowversion: "0.1"
 workflowfile: nf_workflow.nf
 workflowautohide: false
