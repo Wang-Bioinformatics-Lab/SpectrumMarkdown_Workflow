@@ -56,5 +56,15 @@ for results_obj in df.to_dict(orient="records"):
 # drop image_path
 df = df.drop(columns=["image_path"])
 
+if "mz_max" in df.columns:
+    df = df.drop(columns=["mz_max"])
+
+if "mz_min" in df.columns:
+    df = df.drop(columns=["mz_min"])
+
+if "max_intensity" in df.columns:
+    df = df.drop(columns=["max_intensity"])
+
+
 open(args.output_markdown, 'w').write(df.to_markdown(index=False))
 open(args.output_html, "w").write(markdown.markdown(df.to_markdown(index=False), extensions=['tables']))
