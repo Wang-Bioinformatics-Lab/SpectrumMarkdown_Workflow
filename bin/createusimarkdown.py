@@ -26,13 +26,29 @@ for results_obj in df.to_dict(orient="records"):
     
     image_path = results_obj["image_path"]
 
+    params = {}
+
     if usi2 is not None:
-        url = "https://metabolomics-usi.gnps2.org/svg/mirror/?usi1={}&usi2={}".format(usi, usi2)
+        url = "https://metabolomics-usi.gnps2.org/svg/mirror/".format(usi, usi2)
+        params["usi1"] = usi
+        params["usi2"] = usi2
     else:
-        url = "https://metabolomics-usi.gnps2.org/svg/?usi1={}".format(usi)
+        url = "https://metabolomics-usi.gnps2.org/svg/".format(usi)
+        params["usi1"] = usi
+
+    if "mz_max" in results_obj:
+        params["mz_max"] = results_obj["mz_max"]
+
+    if "mz_min" in results_obj:
+        params["mz_min"] = results_obj["mz_min"]
+
+    if "max_intensity" in results_obj:
+        params["max_intensity"] = results_obj["max_intensity"]
+
+    
     
     try:
-        r = requests.get(url)
+        r = requests.get(url, params=params)
         open(image_path, "wb").write(r.content)
     except:
         pass
