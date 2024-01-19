@@ -46,8 +46,6 @@ def main():
 
         if "max_intensity" in results_obj:
             params["max_intensity"] = results_obj["max_intensity"]
-
-        
         
         try:
             r = requests.get(url, params=params)
